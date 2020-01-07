@@ -3,6 +3,8 @@ import { Router, ActivatedRoute} from '@angular/router';
 import { SesdataService } from '../sesdata.service';
 
 
+
+
 @Component({
   selector: 'app-chapter-list',
   templateUrl: './chapter-list.component.html',
@@ -31,13 +33,15 @@ export class ChapterListComponent implements OnInit {
     public MongoDbChapters=[
     {"id":1,"name":"Collection"},
     {"id":2,"name":"Document"},
-    {"id":3,"name":"Json"}
+    {"1id":3,"name":"Json"}
     ];
     myn=true;
-    public jump = "course"
+    public jump = "course";
+    
      
 
   constructor( private router: Router, private sData: SesdataService,activeroute:ActivatedRoute) {
+    
   
    }
 
@@ -47,6 +51,7 @@ export class ChapterListComponent implements OnInit {
     this.isSelected=true;
     this.myn=false;
     this.jump="courseList";
+    sessionStorage.setItem('myval','true');
   }
 
   onReactSelect(reactChapter){
@@ -54,6 +59,7 @@ export class ChapterListComponent implements OnInit {
     this.isSelected=true;
     this.myn=false;
     this.jump="courseList";
+    sessionStorage.setItem('myval','true');
   }
 
   onVueSelect(vueChapter){
@@ -61,24 +67,31 @@ export class ChapterListComponent implements OnInit {
     this.isSelected=true;
     this.myn=false;
     this.jump="courseList";
+    sessionStorage.setItem('myval','true');
   }
   onMongoSelect(mongoChapter){
     this.router.navigate(['/courseList/coursedetails',mongoChapter.id]);
     this.isSelected=true;
     this.myn=false;
     this.jump="courseList";
+    sessionStorage.setItem('myval','true');
   }
 
   ngOnInit() {
-    this.courseName= sessionStorage.getItem('selectedCourse');
-    
+    this.courseName= sessionStorage.getItem('selectedCourse');   
+    this.isSelected=!!sessionStorage.getItem('myval');
+    sessionStorage.removeItem('myval');
   }
-
+    
   toggle()
   {
     this.istoggle= false;
+    this.isSelected= false;
     this.myn=true;
     this.jump="course"
+    sessionStorage.removeItem('myval');
+
+
   }
  
 
