@@ -1,17 +1,65 @@
   <div class="col-rgt" >
     
-    <div *ngIf="selectedCourse=='Angular'">
-      <div *ngIf="selectedId==1">
+    <div  *ngIf="selectedCourse=='Angular'">
+      
+      <div *ngIf="id==1">
         <h3>Data Binding in Angular</h3>
-        <p>Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications without worrying about pushing and pulling data. </p>
+        <p>Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications. </p>
       </div>
-      <div *ngIf="selectedId==2">
+      <div *ngIf="id==2">
         <h3>Routing in Angular</h3>
         <p>The Angular router is a core part of the Angular platform. It enables developers to build Single Page Applications with multiple views and allow navigation between these views. </p>
       </div>
-      <div *ngIf="selectedId==3">
+      <div *ngIf="id==3">
         <h3>Services in Angular</h3>
-        <p>Angular services are singleton objects which get instantiated only once during the lifetime of an application. They contain methods that maintain data throughout the life of an application, i.e. data does not get refreshed and is available all the time. </p>
+        <p>Angular services are singleton objects which get instantiated only once during the lifetime of an application. They contain methods that maintain data throughout the life of an application. </p>
+      </div>
+
+    </div>
+    <div *ngIf="selectedCourse=='React'">
+      <div *ngIf="id==1">
+        <h3>Data Binding in React</h3>
+        <p>Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications. </p>
+      </div>
+      <div *ngIf="id==2">
+        <h3>Routing in React</h3>
+        <p>The Angular router is a core part of the Angular platform. It enables developers to build Single Page Applications with multiple views and allow navigation between these views. </p>
+      </div>
+      <div *ngIf="id==3">
+        <h3>Services in React</h3>
+        <p>Angular services are singleton objects which get instantiated only once during the lifetime of an application. They contain methods that maintain data throughout the life of an application. </p>
+      </div>
+
+    </div>
+
+    <div *ngIf="selectedCourse=='VueJs'">
+      <div *ngIf="id==1">
+        <h3>Data Binding in Vuejs</h3>
+        <p>Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications. </p>
+      </div>
+      <div *ngIf="id==2">
+        <h3>Routing in Vuejs</h3>
+        <p>The Angular router is a core part of the Angular platform. It enables developers to build Single Page Applications with multiple views and allow navigation between these views. </p>
+      </div>
+      <div *ngIf="id==3">
+        <h3>Services in Vuejs</h3>
+        <p>Angular services are singleton objects which get instantiated only once during the lifetime of an application. They contain methods that maintain data throughout the life of an application. </p>
+      </div>
+
+    </div>
+
+    <div *ngIf="selectedCourse=='MongoDB'">
+      <div *ngIf="id==1">
+        <h3>Data Binding in MongoDB</h3>
+        <p>Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications  </p>
+      </div>
+      <div *ngIf="id==2">
+        <h3>Routing in MongoDB</h3>
+        <p>The Angular router is a core part of the Angular platform. It enables developers to build Single Page Applications with multiple views and allow navigation between these views. </p>
+      </div>
+      <div *ngIf="id==3">
+        <h3>Services in MongoDB</h3>
+        <p>Angular services are singleton objects which get instantiated only once during the lifetime of an application. They contain methods that maintain data throughout the life of an application. </p>
       </div>
 
     </div>

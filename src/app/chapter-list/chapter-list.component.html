@@ -1,28 +1,23 @@
-<div>  
-<span *ngIf="istoggle" (click)="toggle()">
-    <button routerLink="/courseList" class="btn">back</button>
-</span>
-    <span *ngIf="!istoggle">
-      <button routerLink="/course" class="btn">back</button>
-    </span>
-  </div>
+
+ <div><span (click)="toggle()"> <button routerLink="/{{jump}}" class="btn">back</button></span></div>
     
-      
-    <div class="col1">
+  
+    <div [class.col1]="isSelected" [class.col2]="myn">
       <h2>{{courseName}} Chapters</h2>      
        <ul class="items" *ngIf="courseName=='Angular'" >
-        <li (click)="onAngSelect(angChapter)" *ngFor="let angChapter of angularChapters"><span class="badge">{{angChapter.id}}</span> {{angChapter.name}} </li>
+        <li [ngClass]="['active']" (click)="onAngSelect(angChapter)"*ngFor="let angChapter of angularChapters"><span class="badge">{{angChapter.id}}</span> {{angChapter.name}} </li>
       </ul>
-      <ul class="items" *ngIf="courseName=='Node'" >
-        <li *ngFor="let nodeChapter of nodeChapters"><span class="badge">{{nodeChapter.id}}</span> {{nodeChapter.name}} </li>
+      <ul class="items" *ngIf="courseName=='React'" >
+        <li (click)="onReactSelect(reactChapter)" *ngFor="let reactChapter of reactChapters"><span class="badge">{{reactChapter.id}}</span> {{reactChapter.name}} </li>
       </ul>
       <ul class="items" *ngIf="courseName=='VueJs'">
-        <li *ngFor="let vueChapter of vueJsChapters"><span class="badge">{{vueChapter.id}}</span> {{vueChapter.name}} </li>
+        <li (click)="onVueSelect(vueChapter)"  *ngFor="let vueChapter of vueJsChapters"><span class="badge">{{vueChapter.id}}</span> {{vueChapter.name}} </li>
       </ul>
-      <ul class="items" *ngIf="courseName=='MangoDB'" >
-        <li *ngFor="let mangoChapter of MangoDbChapters"><span class="badge">{{mangoChapter.id}}</span> {{mangoChapter.name}} </li>
+      <ul class="items" *ngIf="courseName=='MongoDB'" >
+        <li (click)="onMongoSelect(mongoChapter)" *ngFor="let mongoChapter of MongoDbChapters"><span class="badge">{{mongoChapter.id}}</span> {{mongoChapter.name}} </li>
       </ul>
     </div>
+    
     <div class="col1">
       <router-outlet></router-outlet>
     </div>

@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   { path: 'course', component: CourseComponent },  
   { path: 'courseList', component: ChapterListComponent, children: [{
-    path:'coursedetails', component: ContentComponent
+    path:'coursedetails/:id', component: ContentComponent
   }]},
   
 ]

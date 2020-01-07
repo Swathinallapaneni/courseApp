@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { SesdataService } from '../sesdata.service';
 
 
@@ -12,42 +12,61 @@ export class ChapterListComponent implements OnInit {
   public courseName:any;
   public selectedId:any;
   istoggle:boolean=true;
-
+  isSelected:boolean=false;
   public angularChapters=[
     {"id":1,"name":"Binding"},
     {"id":2,"name":"Routing"},
     {"id":3,"name":"Services"}
     ];
-    public nodeChapters=[
-    {"id":1,"name":"ABC"},
-    {"id":2,"name":"DEF"},
-    {"id":3,"name":"GHI"}
+    public reactChapters=[
+    {"id":1,"name":"Forms"},
+    {"id":2,"name":"LifeCycle"},
+    {"id":3,"name":"States"}
     ];
     public vueJsChapters=[
-    {"id":1,"name":"ABC"},
-    {"id":2,"name":"DEF"},
-    {"id":3,"name":"GHI"}
+    {"id":1,"name":"Events"},
+    {"id":2,"name":"LifeCycle"},
+    {"id":3,"name":"binding"}
     ];
-    public MangoDbChapters=[
-    {"id":1,"name":"ABC"},
-    {"id":2,"name":"DEF"},
-    {"id":3,"name":"GHI"}
+    public MongoDbChapters=[
+    {"id":1,"name":"Collection"},
+    {"id":2,"name":"Document"},
+    {"id":3,"name":"Json"}
     ];
+    myn=true;
+    public jump = "course"
      
 
-  constructor( private router: Router, private sData: SesdataService) {
-    this.sData.selectedId.subscribe(id =>{
-      this.selectedId =id;
-    })
+  constructor( private router: Router, private sData: SesdataService,activeroute:ActivatedRoute) {
+  
    }
 
   onAngSelect(angChapter){
-    this.router.navigate(['/courseList/coursedetails']);
-    this.sData.selectedId.next(angChapter.id);  
+    this.router.navigate(['/courseList/coursedetails', angChapter.id]);
+    //this.sData.selectedId.next(angChapter.id);  
+    this.isSelected=true;
+    this.myn=false;
+    this.jump="courseList";
   }
 
-  onNodeSelect(nodeChapter){
-    this.router.navigate(['/course/node',nodeChapter.id]);
+  onReactSelect(reactChapter){
+    this.router.navigate(['/courseList/coursedetails',reactChapter.id]);
+    this.isSelected=true;
+    this.myn=false;
+    this.jump="courseList";
+  }
+
+  onVueSelect(vueChapter){
+    this.router.navigate(['/courseList/coursedetails',vueChapter.id]);
+    this.isSelected=true;
+    this.myn=false;
+    this.jump="courseList";
+  }
+  onMongoSelect(mongoChapter){
+    this.router.navigate(['/courseList/coursedetails',mongoChapter.id]);
+    this.isSelected=true;
+    this.myn=false;
+    this.jump="courseList";
   }
 
   ngOnInit() {
@@ -58,6 +77,8 @@ export class ChapterListComponent implements OnInit {
   toggle()
   {
     this.istoggle= false;
+    this.myn=true;
+    this.jump="course"
   }
  
 

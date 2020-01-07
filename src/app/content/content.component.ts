@@ -13,16 +13,22 @@ export class ContentComponent implements OnInit {
   id:number;
   selectedCourse: any;
   public selectedId=1;
+  private sub;
 
   constructor(private route: ActivatedRoute, private router: Router, private sData:SesdataService) {
-    this.sData.selectedId.subscribe(id =>{
-      this.selectedId =id;      
-   });
-   
+    
   }
 
   ngOnInit() {
     this.selectedCourse = sessionStorage.getItem('selectedCourse')
+    this.sub= this.route.params.subscribe(params => {
+      this.id=+params['id'];
+
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   

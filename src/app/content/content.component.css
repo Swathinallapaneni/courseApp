@@ -1,8 +1,9 @@
 .col-rgt{
-   position: relative; 
+   /* position: relative;  */
   border: black solid 1px;
-  width:225%;
-  text-align:justify;
+  width:100%;
+  /* text-align:justify; */
+  top:20px;
   border-radius: 20px;
   padding: 30px;
 }
